@@ -9,9 +9,14 @@ namespace NanoTotalCommander
     public class Model
     {
         private string[] drives;
+        private string[] files;
+        public string[] FilesList
+        {
+            get { return files; }
+        }
         public string[] DrivesList { get { return drives; } }
 
-        public void loadDrives()
+        public void LoadDrives()
         {
             System.IO.DriveInfo[] tmp = System.IO.DriveInfo.GetDrives();
             List<string> drivesList = new List<string>();
@@ -25,6 +30,13 @@ namespace NanoTotalCommander
 
 
             drives = drivesList.ToArray();
+        }
+        public void LoadFiles(string path)
+        {
+            if(System.IO.Directory.Exists(path))
+            {
+                files = System.IO.Directory.GetDirectories(path);
+            }
         }
     }
 }

@@ -24,10 +24,14 @@ namespace NanoTotalCommander
 
         private void VControl_Load(object sender, EventArgs e)
         {
-            if (OnLoadDrives != null)
-            {
-                OnLoadDrives();
-            }
+           //wywolanie eventu loaddrives
+        }
+
+        private void comboBoxDrives_DropDown(object sender, EventArgs e)
+        {
+
+            //wywolanie eventu loaddrives
+
         }
     }
 }

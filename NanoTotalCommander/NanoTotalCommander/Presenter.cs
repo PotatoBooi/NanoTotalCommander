@@ -20,7 +20,7 @@ namespace NanoTotalCommander
 
         private string[] getReadyDrives()
         {
-            model.loadDrives();
+            model.LoadDrives();
             return model.DrivesList;
         }
       

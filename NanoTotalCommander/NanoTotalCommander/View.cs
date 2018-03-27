@@ -15,11 +15,12 @@ namespace NanoTotalCommander
         public View()
         {
             InitializeComponent();
-            vControlLeft.OnLoadDrives += LoadDrives;
+           
+            
         }
 
         public string[] DrivesList { get { return vControlLeft.Drives; } set { vControlLeft.Drives = value; } }
-        public string LeftControlPath { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string LeftControlPath { get {return vControlLeft.CurrentPath; } set { vControlLeft.CurrentPath = value; } }
         public string[] LeftControlFiles { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string RightControlPath { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string[] RightControlFiles { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
