@@ -17,10 +17,11 @@ namespace NanoTotalCommander
             InitializeComponent();
         }
         public string CurrentPath { get { return textBoxPath.Text; } set { textBoxPath.Text = value; } }
-        public string[] Drives { get { return comboBoxDrives.Items.OfType<string>().ToArray(); } set { comboBoxDrives.Items.AddRange(value); } }
-        public string[] FilesList { get { return listBoxFiles.Items.OfType<string>().ToArray(); } set { listBoxFiles.Items.AddRange(value); } }
+        public string[] Drives { get { return comboBoxDrives.Items.OfType<string>().ToArray(); } set { comboBoxDrives.Items.Clear(); comboBoxDrives.Items.AddRange(value); } }
+        public string[] FilesList { get { return listBoxFiles.Items.OfType<string>().ToArray(); } set {listBoxFiles.Items.Clear(); listBoxFiles.Items.AddRange(value); } }
 
-        public event Func<string[]> OnLoadDrives;
+        public event EventHandler OnLoadDrives;
+        public event EventHandler OnPathChange;
 
         private void VControl_Load(object sender, EventArgs e)
         {
@@ -29,9 +30,23 @@ namespace NanoTotalCommander
 
         private void comboBoxDrives_DropDown(object sender, EventArgs e)
         {
+            
+            if (OnLoadDrives != null)
+            {
+                OnLoadDrives(sender, e);
+            }
+        }
 
-            //wywolanie eventu loaddrives
-
+        private void comboBoxDrives_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBoxDrives.SelectedIndex !=-1)
+            {
+                CurrentPath = comboBoxDrives.SelectedItem.ToString();
+                if(OnPathChange!=null)
+                {
+                    OnPathChange(this, e);
+                }
+            }
         }
     }
 }

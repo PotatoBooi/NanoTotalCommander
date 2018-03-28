@@ -41,6 +41,7 @@
             this.comboBoxDrives.Size = new System.Drawing.Size(78, 21);
             this.comboBoxDrives.TabIndex = 0;
             this.comboBoxDrives.DropDown += new System.EventHandler(this.comboBoxDrives_DropDown);
+            this.comboBoxDrives.SelectedIndexChanged += new System.EventHandler(this.comboBoxDrives_SelectedIndexChanged);
             // 
             // textBoxPath
             // 

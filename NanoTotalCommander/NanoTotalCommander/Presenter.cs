@@ -15,6 +15,7 @@ namespace NanoTotalCommander
             this.model = model;
             this.view = view;
             view.LoadDrives += getReadyDrives;
+            view.LoadFiles += getFiles;
 
         }
 
@@ -22,6 +23,16 @@ namespace NanoTotalCommander
         {
             model.LoadDrives();
             return model.DrivesList;
+        }
+        private string changePath()
+        {
+            // model.ChangePath(view.)
+            return model.Path;
+        }
+        private string[] getFiles(string path)
+        {
+            model.LoadFiles(path);
+            return model.MakeListToSend();
         }
       
 
