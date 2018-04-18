@@ -31,6 +31,7 @@
             this.comboBoxDrives = new System.Windows.Forms.ComboBox();
             this.textBoxPath = new System.Windows.Forms.TextBox();
             this.listBoxFiles = new System.Windows.Forms.ListBox();
+            this.buttonUp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxDrives
@@ -57,11 +58,24 @@
             this.listBoxFiles.Name = "listBoxFiles";
             this.listBoxFiles.Size = new System.Drawing.Size(293, 290);
             this.listBoxFiles.TabIndex = 2;
+            this.listBoxFiles.DoubleClick += new System.EventHandler(this.listBoxFiles_DoubleClick);
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonUp.Location = new System.Drawing.Point(3, 78);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(50, 39);
+            this.buttonUp.TabIndex = 3;
+            this.buttonUp.Text = "⬆";
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
             // 
             // VControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.listBoxFiles);
             this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.comboBoxDrives);
@@ -78,5 +92,6 @@
         private System.Windows.Forms.ComboBox comboBoxDrives;
         private System.Windows.Forms.TextBox textBoxPath;
         private System.Windows.Forms.ListBox listBoxFiles;
+        private System.Windows.Forms.Button buttonUp;
     }
 }

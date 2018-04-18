@@ -15,7 +15,10 @@ namespace NanoTotalCommander
         string[] RightControlFiles { get; set; }
 
         event Func<string[]> LoadDrives;
-        event Func<string, string[]> LoadFiles; 
+        event Func<string, string[]> LoadFiles;
+        event Func<string, string, string> CheckItem;
+        event Func<string,string> GetParentPath;
+        event Action<object,EventArgs,string,string,string,string> ButtonsClicked;
 
     }
 }
